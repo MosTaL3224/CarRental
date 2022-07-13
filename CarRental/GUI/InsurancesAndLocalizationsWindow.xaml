@@ -1,0 +1,62 @@
+﻿<Window x:Class="CarRental.GUI.InsurancesAndLocalizationsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental.GUI"
+        mc:Ignorable="d"
+        Title="Ubezpieczenia i Lokalizacje" Height="800" Width="1000" ResizeMode="NoResize" Icon="/GUI/icon.png">
+    <Window.Background>
+        <LinearGradientBrush x:Name="CarsWin" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="#D455" Offset="0.49"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Border BorderBrush="White" BorderThickness="2,2,2,2" HorizontalAlignment="Left" Margin="10,10,0,10" Width="480">
+            <Grid Margin="0,0,0,0">
+                <Label Content="Rodzaje ubezpieczeń" Foreground="White" Margin="105,8,105,690" FontWeight="Bold" FontSize="24"/>
+                <DataGrid x:Name="InsuranceDataGrid"  Margin="10,55,10,330" AutoGenerateColumns="False" SelectionMode="Single" SelectionChanged="InsuranceDataGrid_SelectionChanged" Background="#FF848484">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding InsuranceId}" Header="Id" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding InsuranceName}" Header="Nazwa ubezpieczenia" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding InsurancePrice}" Header="Cena ubezpieczenia" IsReadOnly="True"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Content="Nazwa ubezpieczenia:" Foreground="White" Margin="21,485,227,210" FontWeight="Bold" FontSize="20"/>
+                <Label Content="Cena ubezpieczenia:" Foreground="White" Margin="21,580,227,109" FontWeight="Bold" FontSize="20"/>
+                <TextBox x:Name="InsuranceNameTextBox" HorizontalAlignment="Left" Margin="26,534,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="32" FontWeight="Bold" FontSize="16"/>
+                <TextBox x:Name="InsurancePriceTextBox" HorizontalAlignment="Left" Margin="26,635,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="32" FontWeight="Bold" FontSize="16"/>
+                <Button x:Name="AddInsuranceButton" Content="Dodaj" HorizontalAlignment="Left" Height="53" Margin="266,485,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" FontSize="18" Click="AddInsuranceButton_Click"/>
+                <Button x:Name="UpdateInsuranceButton" Content="Aktualizuj" HorizontalAlignment="Left" Height="53" Margin="266,564,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" FontSize="18" Click="UpdateInsuranceButton_Click"/>
+                <Button x:Name="RemoveInsuranceButton" Content="Usuń" HorizontalAlignment="Left" Height="53" Margin="266,643,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" FontSize="18" Click="RemoveInsuranceButton_Click"/>
+
+            </Grid>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="2,2,2,2" HorizontalAlignment="Right"  Margin="0,10,10,10"  Width="480">
+            <Grid Margin="0,0,0,0">
+                <Label Content="Lokalizacje" Foreground="White" Margin="166,10,166,688" FontWeight="Bold" FontSize="24"/>
+                <DataGrid x:Name="LocalizationDataGrid"  Margin="10,55,10,330" AutoGenerateColumns="False" SelectionMode="Single" SelectionChanged="LocalizationDataGrid_SelectionChanged" Background="#FF848484">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding LocalizationId}" Header="Id" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding City}" Header="Miasto" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Province}" Header="Województwo" IsReadOnly="True"></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Address}" Header="Adres" IsReadOnly="True"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Content="Miasto:" Foreground="White" Margin="23,438,225,255" FontWeight="Bold" FontSize="20"/>
+                <Label Content="Województwo:" Foreground="White" Margin="23,533,225,155" FontWeight="Bold" FontSize="20"/>
+                <TextBox x:Name="CityTextBox" HorizontalAlignment="Left" Margin="28,487,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="32" FontWeight="Bold" FontSize="16"/>
+                <TextBox x:Name="ProvinceTextBox" HorizontalAlignment="Left" Margin="28,588,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="32" FontWeight="Bold" FontSize="16"/>
+                <Button x:Name="AddLocalizationButton" Content="Dodaj" HorizontalAlignment="Left" Height="53" Margin="266,485,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" FontSize="18" Click="AddLocalizationButton_Click"/>
+                <Button x:Name="UpdateLocalizationButton" Content="Aktualizuj" HorizontalAlignment="Left" Height="53" Margin="266,564,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" FontSize="18" Click="UpdateLocalizationButton_Click"/>
+                <Button x:Name="RemoveLocalizationButton" Content="Usuń" HorizontalAlignment="Left" Height="53" Margin="266,643,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" FontSize="18" Click="RemoveLocalizationButton_Click"/>
+                <Label Content="Adres:" Foreground="White" Margin="23,625,225,64" FontWeight="Bold" FontSize="20"/>
+                <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Margin="28,680,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="32" FontWeight="Bold" FontSize="16"/>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
